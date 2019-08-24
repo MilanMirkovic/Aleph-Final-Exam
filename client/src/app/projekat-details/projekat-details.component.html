@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div *ngIf=projekat>
+    <h2>{{projekat.naziv}}</h2>
+    <p>{{projekat.opis}}</p>
+    <br>
+    <br>
+    <p>{{projekat.readMe}}</p>
+    <br>
+    <br>
+    <div>
+      Komentari 
+
+      <br>
+      <br>
+      <button (click)="komentarToggle()"> Dodaj Komentar</button>
+      <div class ="lg-2" *ngIf=dodajKomentar>
+      <form (ngSubmit)="addComment()">
+          <div>
+            <label for="">Komentar</label>
+            <textarea class="form-control" name="input-project" id="input-commentar" [(ngModel)]="noviKomentar.komentar" ></textarea>
+            <label for="">Ime Korisnika</label>
+            <input class="form-control" name="ime-korisnika" id="input-commentar" style="width:30%" [(ngModel)]="noviKomentar.imeKorisnika" />
+            <span>
+              
+              <input class="btn btn-success" type="submit" value="Dodaj" />
+            </span>
+          </div>
+        </form>
+      </div>
+        <br>
+        <br>
+      <div *ngFor="let k of projekat.komentari">
+       <div id="kometar"> 
+         <p> {{k.komentar}}</p>
+         <p>By: {{k.imeKorisnika}}</p>
+         
+      </div>
+      <hr style="width: 100%; color: black; height: 1px; background-color:black;">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,5 @@
+
+<div class="container">
 <form class="form-signin" (ngSubmit)="login()">
   <h2 class="form-signin-heading">Please sign in</h2>
   <label for="username" class="sr-only">Username</label>
@@ -8,4 +10,6 @@
 </form>
 <div *ngIf=wrongUsernameOrPass class="alert alert-warning box-msg" role="alert">
   Wrong username or password.
+</div>
+
 </div>

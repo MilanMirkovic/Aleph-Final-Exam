@@ -598,8 +598,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\ProjectOne\client\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
-module.exports = __webpack_require__(/*! D:\ProjectOne\client\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Users\Milan\Desktop\MirkovicMilan\client\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+module.exports = __webpack_require__(/*! C:\Users\Milan\Desktop\MirkovicMilan\client\src\styles.css */"./src/styles.css");
 
 
 /***/ })

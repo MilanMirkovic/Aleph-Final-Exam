@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="col input-group">
+
+    <span>Name:  <input class="search" type="text" name="naziv" id="" [(ngModel)]="naziv">
+    </span>
+
+    <button (click)="filter()">Filter</button>
+     <button (click)="resetFilter()">Clear</button> 
+  </div>
+
+
+  <div class="row">
+   
+   
+    <div *ngIf="page" class="col col-lg-9">
+      <div class="buttons">
+        <button [disabled]="page.first" (click)="previousPage()" class="glyphicon glyphicon-arrow-left"></button>
+        <button [disabled]="page.last" (click)="nextPage()" class="glyphicon glyphicon-arrow-right"></button>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col"> Description</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let p of page.content">
+          <tr>
+            <td>{{p.naziv}}</td>
+            <td>{{p.opis}}</td>
+            <ul>
+             <li> <a [routerLink]="['projekat',p.id]"><button  class="btn btn-primary">Details</button></a></li>
+            <li> <button *ngIf="loggedIn" (click)="izmeniProjekat(p)" class="btn btn-default"> Edit</button> </li>  
+            <li> <button *ngIf="loggedIn" (click)="obrisi(p)" class="btn btn-danger"> Delete</button> </li>  
+          </ul>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    
+  <div *ngIf="loggedIn"  class="col col-lg-2">
+      <form action="">
+        <label for="label">Name</label>
+        <input name="naziv"  type="text" [(ngModel)]="projekatZaIzmenu.naziv"/>
+        <br/>
+
+          <label for="opis">Description</label>
+          <input name="opis"  type="text" [(ngModel)]="projekatZaIzmenu.opis"  />
+        <br/>
+        <label for="read">Read Me</label>
+        <textarea name="readMe"  type="text" [(ngModel)]="projekatZaIzmenu.readMe"></textarea>
+        <!-- <input class="btn btn-primary" type="submit" value="Sacuvaj"/> -->
+     
+      </form>
+      <br>
+      <div class="sacuvaj-reset">
+      <button  class="btn btn-warning" (click)="reset()">Reset</button>
+      <button  class="btn btn-primary" (click)="sacuvajProjekat()">Save</button>
+    </div>
+    
+    </div>
+    
+  
+
+  </div>
+</div>

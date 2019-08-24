@@ -13,12 +13,20 @@ import { CanActivateAuthGuard } from './security/can-activate-auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './security/token-interceptor.service';
 import { JwtUtilsService } from './security/jwt-utils.service';
+import { RegistracijaComponent } from './registracija/registracija.component';
+import { MainComponent } from './main/main.component';
+import { ProjekatDetailsComponent } from './projekat-details/projekat-details.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    RegistracijaComponent,
+    MainComponent,
+    ProjekatDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -7,13 +7,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import vp.spring.rcs.model.Komentar;
 
 @Entity
 public class SecurityUser {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String username;
@@ -23,6 +26,10 @@ public class SecurityUser {
 	private String firstName;
 	
 	private String lastName;
+	
+	
+	@OneToMany(mappedBy="user")
+	Set<Komentar> komentari=new HashSet<>();
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
 	private Set<SecurityUserAuthority> userAuthorities = new HashSet<SecurityUserAuthority>();
